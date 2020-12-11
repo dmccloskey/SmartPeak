@@ -53,7 +53,7 @@ namespace SmartPeak
     dynamic_filenames.mzML_i       = mzml_input_path + "/" + input_mzML_filename + ".mzML";
 
     const std::string prefix_in = features_input_path + "/" + input_inj_name;
-    dynamic_filenames.featureXML_i = prefix_in + ".featureXML";
+    dynamic_filenames.featureXML_i = features_input_path + "/" + input_sample_name + ".featureXML";
     dynamic_filenames.mzTab_i = prefix_in + ".mzTab";
 
     dynamic_filenames.featureXMLSampleGroup_i = features_input_path + "/" + input_sample_name + ".featureXML";
