@@ -14,6 +14,7 @@
 #include <OpenMS/FORMAT/AbsoluteQuantitationMethodFile.h>
 #include <OpenMS/FORMAT/MRMFeatureQCFile.h>  // load featureFilter and featureQC
 #include <plog/Log.h>
+#include <exception>
 
 namespace SmartPeak
 {
@@ -110,6 +111,16 @@ namespace SmartPeak
       catch (OpenMS::Exception::DivisionByZero& )
       {
         LOGW << "Warning: '" << row.getComponentName() << "' cannot be analysed - division by zero\n";
+        continue;
+      }
+      catch (std::exception& e )
+      {
+        LOGW << "Warning: '" << row.getComponentName() << "' cannot be analysed. " << e.what() <<"\n";
+        continue;
+      }
+      catch (...)
+      {
+        LOGW << "Warning: '" << row.getComponentName() << "' cannot be analysed.\n";
         continue;
       }
       // find the optimal calibration curve for each component
