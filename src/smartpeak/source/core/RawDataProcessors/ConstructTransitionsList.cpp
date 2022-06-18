@@ -123,7 +123,7 @@ namespace SmartPeak
       transition_tsv_file.convertTargetedExperimentToTSV(transitions_filename.c_str(), t_exp);
     }
 
-    // save the targeted experiments
-    rawDataHandler_IO.setTargetedExperiment(t_exp);
+    //// save the targeted experiments (Does not work with multiple injections)
+    //rawDataHandler_IO.setTargetedExperiment(t_exp);
   }
 }
